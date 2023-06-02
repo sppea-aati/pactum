@@ -1,0 +1,11 @@
+/.classpath
+/.project
+/.settings
+/target
+/bin/
+node_modules
+src/main/webapp/dist/
+src/main/webapp/app_src/
+src/main/webapp/npm-debug.log
+src/main/webapp/assets
+/.springBeans

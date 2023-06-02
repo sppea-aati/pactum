@@ -1,0 +1,54 @@
+<div class="col-md-12">
+    <div class="row">
+      <div class="col-md-12 col-lg-6">
+          <div class="panel panel-default">
+              <div class="panel-heading">
+                  <botao-voltar class="pull-right"></botao-voltar>
+                  <h3 class="panel-title">
+                      <i class="panel-title-icon icon-share2"></i> Convênio
+                  </h3>
+              </div>
+              <div class="panel-body" style="padding: 5px 15px 0px 15px;">
+                  <convenio></convenio>
+              </div>
+              <div class="panel-footer">
+                  <ul class="list-inline" style="margin-bottom:0">
+                    <li class="pull-right">
+                      <a class="btn btn-primary btn-sm" [routerLink]="['editar']">
+                        <i class="icon-pencil"></i> Editar convênio
+                      </a>
+                    </li>
+                  </ul>
+                  <div class="clearfix"></div>
+              </div>
+          </div>
+      </div>
+      <div class="col-md-4 col-lg-6">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+                <i class="panel-title-icon icon-attachment"></i>
+                <span class="panel-title">
+                    Anexos
+                </span>
+            </div>
+            <div class="panel-body">
+                <anexo-convenio></anexo-convenio>
+            </div>
+          </div>
+      </div>
+      <div class="col-md-8 col-lg-12">
+          <div class="panel panel-default">
+              <div class="panel-heading">
+                  <h3 class="panel-title"> <i class="panel-title-icon icon-users"></i>
+                      Usuários conveniados
+                    </h3>
+              </div>
+
+              <div class="panel-body">
+                  <lista-acesso-convenio></lista-acesso-convenio>
+              </div>
+          </div>
+      </div>
+    </div>
+
+</div>

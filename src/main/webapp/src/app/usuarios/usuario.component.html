@@ -1,0 +1,101 @@
+<div class="container-fluid" *ngIf="usuarioConvenio | async; let usuarioConvenio; else noSelection">
+
+  <div class="row panel-line">
+    <div class="col-md-2">
+      <p class="field-label">Matrícula</p>
+      <p class="field-content">{{usuarioConvenio.pessoal.matricula}}</p>
+    </div>
+    <div class="col-md-6">
+      <p class="field-label">Nome</p>
+      <p class="field-content">
+          {{usuarioConvenio.pessoal.nome}}
+        <a target="pin_{{usuarioConvenio.pessoal.matricula}}"
+           href="https://portal.mpf.mp.br/apex/f?p=116:20:::NO::P20_MATRICULA:{{usuarioConvenio.pessoal.matricula}}">
+          <span class="glyphicon glyphicon-user"
+                style="font-size: 18px; color:#2196F3"
+                data-toggle="tooltip"
+                title="Abrir no PIN">
+          </span>
+        </a>
+      </p>
+    </div>
+    <div class="col-md-4">
+      <p class="field-label">CPF</p>
+      <p class="field-content">{{formatarCPF(usuarioConvenio.pessoal.cpf)}}</p>
+    </div>
+  </div>
+
+  <div class="row panel-line">
+    <div class="col-md-4">
+      <p class="field-label">Cargo</p>
+      <p class="field-content">{{usuarioConvenio.pessoal.descricaoCargo}}</p>
+    </div>
+    <div class="col-md-4">
+      <p class="field-label">E-mail 1</p>
+      <p class="field-content">{{usuarioConvenio.pessoal.email}}</p>
+    </div>
+    <div class="col-md-4">
+      <p class="field-label">E-mail 2</p>
+      <p class="field-content">{{usuarioConvenio.pessoal.email2}}</p>
+    </div>
+  </div>
+
+  <div class="row panel-line">
+    <div class="col-md-4">
+      <p class="field-label">Tel. Comercial</p>
+      <p class="field-content">{{usuarioConvenio.pessoal.telefoneComercial ? (usuarioConvenio.pessoal.telefoneComercial.ddd + ' ' + usuarioConvenio.pessoal.telefoneComercial.numero)
+        : ''}}</p>
+    </div>
+    <div class="col-md-4">
+      <p class="field-label">Tel. Residencial</p>
+      <p class="field-content">{{usuarioConvenio.pessoal.telefoneResidencial ? (usuarioConvenio.pessoal.telefoneResidencial.ddd + ' ' + usuarioConvenio.pessoal.telefoneResidencial.numero)
+        : ''}}</p>
+    </div>
+    <div class="col-md-4">
+      <p class="field-label">Tel. Celular</p>
+      <p class="field-content">{{usuarioConvenio.pessoal.telefoneCelular ? (usuarioConvenio.pessoal.telefoneCelular.ddd + ' ' + usuarioConvenio.pessoal.telefoneCelular.numero)
+        : ''}}</p>
+    </div>
+  </div>
+
+  <div class="row panel-line">
+    <div class="col-md-4">
+      <p class="field-label">Lotação</p>
+      <p class="field-content"><span *ngIf="usuarioConvenio.pessoal.lotacao">{{usuarioConvenio.pessoal.lotacao.sigla + ' - ' +usuarioConvenio.pessoal.lotacao.descricao}}</span></p>
+    </div>
+    <div class="col-md-4">
+      <p class="field-label">Procuradoria</p>
+      <p class="field-content"><span *ngIf="usuarioConvenio.pessoal.lotacao">{{usuarioConvenio.pessoal.lotacao.procuradoria + ' - ' + usuarioConvenio.pessoal.lotacao.uf}}</span></p>
+    </div>
+    <div class="col-md-4">
+      <p class="field-label">Desligado / Exonerado</p>
+      <p class="field-content">{{usuarioConvenio.pessoal.desligado}}</p>
+    </div>
+  </div>
+
+  <div class="row panel-line">
+    <div class="col-md-4">
+      <p class="field-label">Título de Eleitor</p>
+      <p class="field-content">{{usuarioConvenio.pessoal.tituloEleitor}}</p>
+    </div>
+    <div class="col-md-4">
+      <p class="field-label">RG</p>
+      <p class="field-content">{{usuarioConvenio.pessoal.rgNumero}} - {{usuarioConvenio.pessoal.rgOrgaoEmissor}}/{{usuarioConvenio.pessoal.rgUf}}</p>
+    </div>
+    <div class="col-md-4">
+      <p class="field-label">Data de Nascimento</p>
+      <p class="field-content">{{usuarioConvenio.pessoal.dtNascimento | date:'shortDate'}}</p>
+    </div>
+  </div>
+
+  <div class="row panel-line">
+    <div class="col-md-4">
+      <p class="field-label">Atualizado</p>
+      <p class="field-content">
+          <input type="checkbox" [checked]="usuarioConvenio.atualizado" (change)="atualizarUsuario($event, usuarioConvenio)">
+      </p>
+    </div>
+  </div>
+
+</div>
+<ng-template #noSelection>Nenhum usuário selecionado.</ng-template>

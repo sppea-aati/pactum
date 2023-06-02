@@ -1,0 +1,48 @@
+dn: ou=pgr,dc=mpf,dc=br
+objectclass: top
+objectclass: organizationalUnit
+ou: pgr
+
+dn: ou=groups,ou=pgr,dc=mpf,dc=br
+objectclass: top
+objectclass: organizationalUnit
+ou: groups
+
+dn: ou=people,ou=pgr,dc=mpf,dc=br
+objectclass: top
+objectclass: organizationalUnit
+ou: people
+
+dn: uid=user,ou=people,ou=pgr,dc=mpf,dc=br
+objectclass: top
+objectclass: person
+objectclass: organizationalPerson
+objectclass: inetOrgPerson
+cn: user
+mail: user
+sn: UserName
+uid: user
+userPassword: user
+
+dn: uid=user1@mpf.mp.br,ou=people,ou=pgr,dc=mpf,dc=br
+objectclass: top
+objectclass: person
+objectclass: organizationalPerson
+objectclass: inetOrgPerson
+cn: user1@mpf.mp.br
+sn: user1@mpf.mp.br
+uid: user
+userPassword: 123
+
+dn: cn=pesquisador,ou=groups,ou=pgr,dc=mpf,dc=br
+objectclass: top
+objectclass: groupOfNames
+cn: user
+uniqueMember: uid=user,ou=people,ou=pgr,dc=mpf,dc=br
+uniqueMember: uid=user1@mpf.mp.br,ou=people,ou=pgr,dc=mpf,dc=br
+
+dn: cn=administrador,ou=groups,ou=pgr,dc=mpf,dc=br
+objectclass: top
+objectclass: groupOfNames
+cn: admin
+uniqueMember: uid=user,ou=people,ou=pgr,dc=mpf,dc=br

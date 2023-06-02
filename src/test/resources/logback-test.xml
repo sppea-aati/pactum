@@ -1,0 +1,46 @@
+<configuration debug="false" scan="true">
+
+	<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder>
+			<charset>utf-8</charset>
+			<pattern>%d{dd/MM/yyyy HH:mm:ss.SSS} [%thread] %-5level %logger - %msg%n</pattern>
+		</encoder>
+	</appender>
+
+	<timestamp key="timestamp" datePattern="yyyyMMdd-HHmmss"/>
+
+ 	<appender name="FILE" class="ch.qos.logback.core.FileAppender">
+		<file>target/logs/convenios-${timestamp}.log</file>
+		<append>true</append>
+		<encoder>
+			<pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger - %msg%n</pattern>
+		</encoder>
+	</appender>
+	
+	<logger name="jndi" level="INFO"/>
+	<logger name="org.eclipse.jetty" level="INFO"/>
+	<logger name="org.eclipse.jetty.webapp.WebAppClassLoader" level="WARN"/>
+	<logger name="org.springframework" level="ERROR"/>
+	<logger name="org.springframework.web" level="DEBUG"/>
+	<logger name="org.springframework.web.servlet.DispatcherServlet" level="WARN"/>
+	<logger name="org.springframework.security.authentication" level="ERROR"/>
+	<logger name="org.springframework.security.web.DefaultRedirectStrategy" level="ERROR"/>
+	<logger name="org.springframework.security.web.authentication" level="ERROR"/>
+	<logger name="org.hibernate" level="WARN"/>
+	<logger name="org.hibernate.engine.transaction" level="INFO"/>
+	<logger name="org.hibernate.SQL" level="INFO"/>
+	<logger name="org.hibernate.tool.schema" level="ERROR"/>
+	<logger name="org.quartz" level="WARN"/>
+	<logger name="org.apache.commons.beanutils" level="ERROR"/>
+	<logger name="org.apache.jasper" level="ERROR"/>
+	<logger name="org.apache.tomcat" level="ERROR"/>
+	<logger name="org.jboss.logging" level="ERROR"/>
+	<logger name="org.dozer" level="ERROR"/>
+	<logger name="/" level="WARN"/>
+
+	<root level="DEBUG">
+		<appender-ref ref="STDOUT" />
+		<appender-ref ref="FILE" />
+	</root>
+
+</configuration>

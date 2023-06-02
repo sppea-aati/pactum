@@ -1,0 +1,62 @@
+<style>
+table tr a {
+    font-weight: bold;
+    color: #566787;
+    text-decoration: none;
+}
+
+table tr a:hover {
+    color: #2196F3;
+    text-decoration: none;
+}
+
+</style>
+
+<div>
+    <div class="input-group">
+      <div class="input-group-btn">
+        <a class="btn btn-sm" aria-label="Filtro"><span class="glyphicon glyphicon-filter"></span> Filtro</a>
+        <button type="button" [class.btn-primary]="(filtroPerfil | async) === 'todos'" class="btn btn-default btn-sm" (click)="onPerfilChange('todos')">Todos</button>
+        <button type="button" [class.btn-primary]="(filtroPerfil | async) === 'servidor'" class="btn btn-default btn-sm" (click)="onPerfilChange('servidor')">Servidor</button>
+        <button type="button" [class.btn-primary]="(filtroPerfil | async) === 'membro'" class="btn btn-default btn-sm" (click)="onPerfilChange('membro')">Membro</button>
+      </div>
+    </div>
+
+    <hr>
+    <div class="table-responsive">
+        <table id="tbl_listaUsuario" class="table table-striped table-hover table-condensed dt-responsive" width="100%" datatable [dtOptions]="dtOptions">
+            <thead>
+                <tr>
+                    <th>Matrícula</th>
+                    <th>Nome</th>
+                    <th>E-mail</th>
+                    <th>CPF</th>
+                    <th>Lotação</th>
+                    <th>Desligado</th>
+                    <th>Atualizado</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let usuarioConvenio of usuariosConvenio | async; let i = index;">
+                    <td>{{usuarioConvenio.pessoal.matricula}}</td>
+                    <td>
+                        <a href="#" [routerLink]="[usuarioConvenio.id]">
+                            {{usuarioConvenio.pessoal.nome}}
+                        </a>
+                    </td>
+                    <td>{{usuarioConvenio.pessoal.email}}</td>
+                    <td>{{formatarCPF(usuarioConvenio.pessoal.cpf)}}</td>
+                    <td><span *ngIf="usuarioConvenio.pessoal.lotacao">{{usuarioConvenio.pessoal.lotacao.sigla}} - {{usuarioConvenio.pessoal.lotacao.descricao}}</span></td>
+                    <td><span [class]='this.desligadoLabelClass(usuarioConvenio.pessoal.desligado)'>{{usuarioConvenio.pessoal.desligado}}</span></td>
+                    <td><span [class]='this.atualizadoLabelClass(isAtualizado(usuarioConvenio.atualizado))'>{{isAtualizado(usuarioConvenio.atualizado)}}</span></td>
+                    <td>
+                        <a href="#" [routerLink]="[usuarioConvenio.id]" data-toggle="tooltip" title="Ver detalhes">
+                            <span class="glyphicon glyphicon-search" style="font-size: 18px; color:#2196F3"></span>
+                        </a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

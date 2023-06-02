@@ -1,0 +1,27 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title"><i class="panel-title-icon icon-users"></i> Usuários conveniados</h3>
+        </div>
+        <div class="panel-body">
+            <form class="form-inline pull-right" [formGroup]="form" (ngSubmit)="adicionarUsuario()">
+                <div class="form-group">
+                  <label class="sr-only" for="matricula">Matricula</label>
+                  <div class="input-group input-group-sm">
+                    <div class="input-group-addon"><i class="icon-user-plus"></i> Cadastrar usuário</div>
+                    <input type="number" onKeyPress="if(this.value.length==5) return false;"
+                        formControlName="matricula"
+                        [(ngModel)]="matricula"
+                        class="form-control" placeholder="Insira a matrícula">
+                  </div>
+                </div>
+                <button type="submit" class="btn btn-primary btn-sm" [disabled]="!form.valid"><i class="glyphicon glyphicon-plus-sign"></i> Adicionar</button>
+            </form>
+          <lista-usuario></lista-usuario>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

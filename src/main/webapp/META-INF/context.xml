@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context path="/pactum" reloadable="false" >
+    <ResourceLink global="jdbc/pactum" name="jdbc/pactum" type="javax.sql.DataSource"/>
+    <ResourceLink global="mail/session" name="mail/convenios" type="javax.mail.Session"/>
+</Context>

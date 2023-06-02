@@ -1,0 +1,40 @@
+<div *ngIf="usuarioConvenio | async; let usuarioConvenio; else noSelection">
+
+  <div class="table-responsive">
+    <table id="tbl_listaConveniosUsuario" class="table table-striped table-hover table-condensed dt-responsive" width="100%" datatable [dtOptions]="dtOptions">
+      <thead>
+        <tr>
+          <th>Sigla</th>
+          <th>Descrição</th>
+          <th>Status</th>
+          <th>Data</th>
+          <th>&nbsp;</th>
+          <th>Histórico</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let acesso of acessos | async; let i = index;">
+          <td>{{acesso.siglaConvenio}}</td>
+          <td>{{acesso.nomeConvenio}}</td>
+          <td><span [class]='this.operacaoAcessoLabelClass(acesso)'>{{formatarOperacaoAcesso(acesso)}}</span></td>
+          <td>{{formatarDataAcesso(acesso)}}</td>
+          <td class="text-center">
+            <button type="button" class="btn btn-default btn-sm" [disabled]="this.buttonDisabled(acesso.operacaoAcesso, 'cadastrar')"
+              (click)="realizarAcesso(acesso, 'CADASTRAR')">Cadastrar</button>
+            <button type="button" class="btn btn-default btn-sm" [disabled]="this.buttonDisabled(acesso.operacaoAcesso, 'recadastrar')"
+              (click)="realizarAcesso(acesso, 'RECADASTRAR')">Recadastrar</button>
+            <button type="button" class="btn btn-default btn-sm" [disabled]="this.buttonDisabled(acesso.operacaoAcesso, 'remover')"
+              (click)="realizarAcesso(acesso, 'REMOVER')">Remover</button>
+          </td>
+          <td class="text-center">
+            <span class="glyphicon glyphicon-search" style="font-size: 18px; color:#2196F3" (click)="exibirHistorico(acesso)"></span>
+          </td>
+        </tr>
+
+      </tbody>
+    </table>
+  </div>
+  <div #modalHitoricoAcesso></div>
+</div>
+
+<ng-template #noSelection>Nenhum usuário selecionado.</ng-template>

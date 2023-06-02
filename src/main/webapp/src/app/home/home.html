@@ -1,0 +1,56 @@
+<style>
+a:hover {
+    text-decoration: none;
+}
+
+div.panel-default:hover {
+    background-color: #cce3f7;
+}
+
+</style>
+
+<div class="container">
+    <div class="row" style="margin-top: 50px;">
+        <div class="col-sm-12 col-md-6">
+            <div class="panel panel-default">
+                <div class="panel-body" style="color: white; background-color: #4279c0;  padding-top: 28px; padding-bottom: 20px; min-height: 170px; text-align: center;">
+                    <span class="panel-title-icon icon-home" style="font-size: 70px; padding: 0px 20px 0px 0px; float: initial"></span>
+                    <h2>
+                        Bem-vindo ao sistema
+                        <i>Pactum</i>
+                    </h2>
+                    <div>Através desse painel, acesse as todas as funcionalidades disponíveis.</div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6 col-md-3">
+            <a href="#" [routerLink]="'/usuarios'">
+                <div class="panel panel-default">
+                    <div class="panel-body" style="min-height: 200px;">
+                        <div class="center-block text-center">
+                            <div class="panel-title-icon icon-users" style="font-size: 70px; float: initial; margin: 15px 0px;"></div>
+                            <span class="panel-title text-block" style="margin-top: 10px;">
+                                Usuários conveniados
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="col-sm-6 col-md-3">
+            <a href="#" [routerLink]="'/convenios'">
+                <div class="panel panel-default">
+                    <div class="panel-body" style="min-height: 200px;">
+
+                        <div class="center-block text-center">
+                            <div class="panel-title-icon icon-share2" style="font-size: 70px; float: initial; margin: 15px 0px;"></div>
+                            <span class="panel-title text-block" style="margin-top: 10px;">
+                                Convênios
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+    </div>

@@ -4,6 +4,8 @@
 * Spring Boot
 * Spring Security
 * Spring Data JPA
+* Angular 6
+* Bootstrap
 * Quartz
 * Banco Oracle
 * Autenticação LDAP

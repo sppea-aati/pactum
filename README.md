@@ -48,6 +48,14 @@ Para instalar as dependências utilizadas pelo Frontend, deve-se executar os pas
 Após a instalação das dependências, deve-se executar o comando abaixo para iniciar a aplicação(frontend)
 * A partir da pasta _src/main/webapp_ executar o comando: `npm run start`
 
+## Autenticação Sistema
+O Sistema Pactum utiliza o protocolo LDAP(Lightweight Directory Access Protocol) para autenticação dos usuários.
+É necessário configurar os atributos abaixo na classe `br.mp.mpf.pgr.pactum.WebSecurityConfiguration`:
+* url: Url do servidor LDAP utilizado para instanciação da classe `DefaultSpringSecurityContextSource`
+* groupSearchBase: Base de pesquisa para membros do grupo
+* userSearchBase: Base de pesquisa de usuários
+* userSearchFilter: Filtro LDAP utilizado para pesquisa de usuários
+
 ## Geração do WAR(Web Arquive)
 Executar o comando abaixo para geração do arquivo _.war_ da aplicação a partir da pasta raiz do projeto:
 * `mvn clean package`

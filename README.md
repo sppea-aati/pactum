@@ -28,7 +28,7 @@
 
 Execute a classe `br.mp.mpf.pgr.pactum.ConveniosApplicationDevOracle` da pasta src/test/java.
 Profiles ativos: `dev-oracle`
-Os seguintes arquivos são necessários na pasta do projeto ou `src/test/resources`:
+Os seguintes arquivos são necessários na pasta raiz do projeto ou `src/test/resources`:
 * application-dev-oracle.properties: arquivo de configuração do datasource da aplicação
 
 Exemplo de configuração do arquivo _application-dev-oracle.properties_:
@@ -38,6 +38,8 @@ spring.datasource.username=user
 spring.datasource.password=passwd
 spring.datasource.driverClassName=oracle.jdbc.OracleDriver
 ```
+O datasource vinculado ao profile `dev-oracle` pode ser também configurado na classe `br.mp.mpf.pgr.pactum.spring.SpringConfigDevOracle`
+
 ## Frontend
 ### Instalar dependências
 Para instalar as dependências utilizadas pelo Frontend, deve-se executar os passos abaixo:

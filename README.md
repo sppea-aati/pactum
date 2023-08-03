@@ -29,31 +29,27 @@
 Execute a classe `br.mp.mpf.pgr.pactum.ConveniosApplicationDevOracle` da pasta src/test/java.
 Profiles ativos: `dev-oracle`
 Os seguintes arquivos são necessários na pasta do projeto ou `src/test/resources`:
-* `application-dev-oracle.properties`
+* application-dev-oracle.properties: arquivo de configuração do datasource da aplicação
 
-### Executando o backend - via Maven
-
-**Sem indicar profile**
-
-Na pasta raiz, execute o seguinte comando
-
-> mvn spring-boot:run
-
-ou, caso não tenha o Maven instalado localmente
-
-
-**Indicando profile**
-
-O sistema pode ser executado com qualquer lista de profile executando:
-
-> mvn spring-boot:run -Dspring-boot.profiles.active=dev-oracle -DmainClass br.mp.mpf.pgr.pactum.ServletInitializer
-
-
+Exemplo de configuração do arquivo _application-dev-oracle.properties_:
+```
+spring.datasource.url=jdbc:oracle:thin:@srv_bd:1521/service
+spring.datasource.username=user
+spring.datasource.password=passwd
+spring.datasource.driverClassName=oracle.jdbc.OracleDriver
+```
 ## Frontend
-# Instalar dependências
+### Instalar dependências
+Para instalar as dependências utilizadas pelo Frontend, deve-se executar os passos abaixo:
+* Entrar na pasta _src/main/webapp_
+* Executar o comando: `npm install`
 
-> npm install
+### Rodar a aplicação frontend
+Após a instalação das dependências, deve-se executar o comando abaixo para iniciar a aplicação(frontend)
+* A partir da pasta _src/main/webapp_ executar o comando: `npm run start`
 
-# Rodar a aplicação front
+## Geração do WAR(Web Arquive)
+Executar o comando abaixo para geração do arquivo _.war_ da aplicação a partir da pasta raiz do projeto:
+* `mvn clean package`
 
-> npm run start
+O arquivo gerado acima deverá ser utilizado para deploy no Servidor de Aplicação. Recomenda-se o uso do [Apache Tomcat](https://tomcat.apache.org/)
